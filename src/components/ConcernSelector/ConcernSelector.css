@@ -1,0 +1,190 @@
+/* =============================================
+   CONCERN SELECTOR — PREMIUM GLASS CHIPS
+   ============================================= */
+
+.cs-section {
+  padding: var(--sp-5);
+}
+
+/* ── Chip grid ──────────────────────────────── */
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+
+/* ── Chip ───────────────────────────────────── */
+
+.cs-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-xl);
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  text-align: left;
+  color: var(--clr-text-primary);
+  animation: chipIn 0.45s var(--t-spring) both;
+  transition:
+    transform    var(--t-normal),
+    box-shadow   var(--t-normal),
+    border-color var(--t-normal),
+    background   var(--t-normal);
+  min-height: 72px;
+}
+
+@keyframes chipIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.cs-chip-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(155deg,
+    rgba(255,255,255,0.60) 0%,
+    rgba(255,255,255,0.10) 100%
+  );
+  pointer-events: none;
+}
+
+/* Hover */
+.cs-chip:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255,255,255,0.95);
+  box-shadow:
+    0 12px 32px var(--c-glow, rgba(0,0,0,0.12)),
+    0 4px 10px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.72);
+}
+
+/* Selected */
+.cs-chip--selected {
+  transform: translateY(-4px) scale(1.01);
+  border-color: var(--c-to, #f43f5e) !important;
+  background: linear-gradient(155deg,
+    rgba(255,255,255,0.85) 0%,
+    color-mix(in srgb, var(--c-from, #fde8e7) 25%, transparent) 100%
+  ) !important;
+  box-shadow:
+    0 12px 36px var(--c-glow, rgba(244,63,94,0.25)),
+    0 4px 12px rgba(0,0,0,0.05),
+    0 0 0 3px rgba(255,255,255,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.95) !important;
+}
+
+/* Orb */
+.cs-chip-orb {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-from, #fde8e7), var(--c-to, #fb7185));
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px var(--c-glow, rgba(0,0,0,0.12));
+  transition: transform var(--t-spring);
+}
+
+.cs-chip:hover     .cs-chip-orb,
+.cs-chip--selected .cs-chip-orb {
+  transform: scale(1.12) rotate(8deg);
+}
+
+.cs-chip-emoji {
+  font-size: 1.1rem;
+  line-height: 1;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.2));
+}
+
+/* Text */
+.cs-chip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+  position: relative; z-index: 1;
+}
+
+.cs-chip-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--clr-text-primary);
+}
+
+.cs-chip-sub {
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+  line-height: 1.3;
+}
+
+.cs-chip--selected .cs-chip-label { color: var(--c-text, var(--clr-primary)); }
+.cs-chip--selected .cs-chip-sub   { color: var(--c-text, var(--clr-primary)); opacity: 0.65; }
+
+/* Check badge */
+.cs-chip-check {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-from, #fde8e7), var(--c-to, #fb7185));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px var(--c-glow);
+  animation: checkPop 0.3s var(--t-spring);
+  z-index: 2;
+}
+
+@keyframes checkPop {
+  from { transform: scale(0) rotate(-90deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+}
+
+/* ── Summary strip ──────────────────────────── */
+
+.cs-summary {
+  margin-top: var(--sp-4);
+  animation: summaryIn 0.35s ease;
+}
+
+@keyframes summaryIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cs-summary-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cs-summary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 640px) {
+  .cs-grid { grid-template-columns: repeat(2, 1fr); }
+  .cs-section { padding: var(--sp-4); }
+}
+@media (max-width: 380px) {
+  .cs-grid { grid-template-columns: 1fr; }
+}

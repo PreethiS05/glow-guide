@@ -1,0 +1,182 @@
+/* =============================================
+   ROUTINE TIME SELECTOR — PREMIUM CARDS
+   ============================================= */
+
+.rts-section {
+  padding: var(--sp-5);
+}
+
+.rts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+
+/* ── Card ───────────────────────────────────── */
+
+.rts-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-6) var(--sp-3) var(--sp-5);
+  border-radius: var(--r-xl);
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  text-align: center;
+  transition:
+    transform    var(--t-normal),
+    box-shadow   var(--t-normal),
+    border-color var(--t-normal),
+    background   var(--t-normal);
+}
+
+.rts-card-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg,
+    rgba(255,255,255,0.65) 0%,
+    rgba(255,255,255,0.10) 100%
+  );
+  pointer-events: none;
+}
+
+.rts-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 50px var(--rt-glow, rgba(0,0,0,0.12)),
+    0 6px 16px rgba(0,0,0,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.72);
+}
+
+.rts-card--selected {
+  transform: translateY(-8px) scale(1.03) !important;
+  border-color: var(--rt-to, #f43f5e) !important;
+  background: linear-gradient(160deg,
+    rgba(255,255,255,0.90) 0%,
+    color-mix(in srgb, var(--rt-from, #fde8e7) 35%, transparent) 100%
+  ) !important;
+  box-shadow:
+    0 20px 60px var(--rt-glow, rgba(244,63,94,0.28)),
+    0 8px 24px rgba(0,0,0,0.06),
+    0 0 0 3px rgba(255,255,255,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.95) !important;
+}
+
+/* ── Orb ────────────────────────────────────── */
+
+.rts-orb {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rt-from, #fde8e7), var(--rt-to, #fb7185));
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  box-shadow:
+    0 6px 20px var(--rt-glow, rgba(0,0,0,0.15)),
+    inset 0 1px 0 rgba(255,255,255,0.40);
+  transition: transform var(--t-spring), box-shadow var(--t-normal);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.rts-card:hover     .rts-orb,
+.rts-card--selected .rts-orb {
+  transform: scale(1.12) rotate(8deg);
+  box-shadow: 0 10px 30px var(--rt-glow, rgba(0,0,0,0.20));
+}
+
+/* Both orb has gradient bg */
+.rts-orb--both {
+  background: linear-gradient(135deg, #fda4af, #c084fc, #818cf8);
+}
+
+/* Morning-specific: subtle sun rays */
+.rts-card--morning .rts-orb {
+  animation: sunGlow 3s ease-in-out infinite;
+}
+@keyframes sunGlow {
+  0%, 100% { box-shadow: 0 6px 20px rgba(251,191,36,0.35); }
+  50%       { box-shadow: 0 6px 30px rgba(251,191,36,0.55); }
+}
+
+/* Night-specific: subtle shimmer */
+.rts-card--night .rts-orb {
+  animation: moonGlow 4s ease-in-out infinite;
+}
+@keyframes moonGlow {
+  0%, 100% { box-shadow: 0 6px 20px rgba(139,92,246,0.35); }
+  50%       { box-shadow: 0 6px 30px rgba(139,92,246,0.55); }
+}
+
+/* ── Labels ─────────────────────────────────── */
+
+.rts-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  line-height: 1;
+  position: relative; z-index: 1;
+}
+
+.rts-sub {
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+  position: relative; z-index: 1;
+}
+
+.rts-card--selected .rts-label { color: var(--rt-accent, var(--clr-primary)); }
+
+/* Recommended badge */
+.rts-recommended {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4c1d95;
+  background: rgba(221,214,254,0.7);
+  border: 1px solid rgba(196,181,253,0.6);
+  border-radius: var(--r-full);
+  padding: 3px 9px;
+  position: relative; z-index: 1;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* Check badge */
+.rts-check {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rt-from, #fde8e7), var(--rt-to, #fb7185));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px var(--rt-glow);
+  animation: checkPop 0.3s var(--t-spring);
+  z-index: 2;
+}
+
+@keyframes checkPop {
+  from { transform: scale(0) rotate(-90deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 600px) {
+  .rts-grid { grid-template-columns: 1fr; }
+  .rts-card { flex-direction: row; justify-content: flex-start; text-align: left; padding: var(--sp-4); gap: var(--sp-3); }
+  .rts-orb  { width: 48px; height: 48px; flex-shrink: 0; }
+  .rts-recommended { margin-top: 0; }
+  .rts-section { padding: var(--sp-4); }
+}
