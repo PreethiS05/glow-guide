@@ -6,25 +6,7 @@ Glow Guide is a modern, responsive web application that helps users generate per
 
 ## 🚀 Live Demo
 
-🔗 https://your-vercel-link.vercel.app
-
----
-
-## 📂 GitHub Repository
-
-🔗 https://github.com/yourusername/glow-guide
-
----
-
-## 📸 Preview
-
-> Add screenshots here after deployment.
-
-### Home Page
-![Home Screenshot](screenshots/home.png)
-
-### Generated Routine
-![Routine Screenshot](screenshots/routine.png)
+🔗 [https://your-vercel-link.vercel.app](https://glow-guide-ten.vercel.app/)
 
 ---
 
