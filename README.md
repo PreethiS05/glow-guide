@@ -1,16 +1,171 @@
-# React + Vite
+# ✨ Glow Guide – Skincare Routine Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Glow Guide is a modern, responsive web application that helps users generate personalized skincare routines based on their skin type and skincare concerns. The application provides customized morning and night skincare recommendations in a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+🔗 https://your-vercel-link.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📂 GitHub Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 https://github.com/yourusername/glow-guide
+
+---
+
+## 📸 Preview
+
+> Add screenshots here after deployment.
+
+### Home Page
+![Home Screenshot](screenshots/home.png)
+
+### Generated Routine
+![Routine Screenshot](screenshots/routine.png)
+
+---
+
+## 🌟 Features
+
+- ✨ Personalized skincare routine generation
+- 🌞 Morning and 🌙 Night routine recommendations
+- Supports 5 skin types:
+  - Oily
+  - Dry
+  - Combination
+  - Sensitive
+  - Normal
+- Multiple skin concern selection
+- Beautiful pastel-themed UI
+- Responsive design for desktop, tablet, and mobile
+- Smooth animations and modern card layout
+- Clean and reusable React components
+
+---
+
+## 🧴 Skin Concerns Supported
+
+- Acne
+- Dark Spots
+- Pigmentation
+- Dullness
+- Fine Lines
+- Redness
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS3
+- HTML5
+
+---
+
+## 📁 Project Structure
+
+```
+glow-guide/
+│
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   ├── Footer/
+│   │   ├── RoutineBuilder/
+│   │   ├── RoutineCard/
+│   │   ├── GenerateButton/
+│   │   ├── SkinTypeSelector/
+│   │   ├── ConcernSelector/
+│   │   └── RoutineTimeSelector/
+│   │
+│   ├── data/
+│   │   └── skincareData.js
+│   │
+│   ├── styles/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/yourusername/glow-guide.git
+```
+
+Navigate into the project
+
+```bash
+cd glow-guide
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Open your browser and visit
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+Preview the production build
+
+```bash
+npm run preview
+```
+
+---
+
+## 💡 How It Works
+
+1. Select your skin type.
+2. Choose one or more skin concerns.
+3. Select Morning or Night routine.
+4. Click **Generate Routine**.
+5. Receive a personalized skincare routine with recommended products.
+
+---
+
+## 🎯 Future Improvements
+
+- Product recommendations with images
+- Ingredient checker
+- Save routine as PDF
+- Dark mode
+- User accounts
+- Routine history
+- AI-powered skincare recommendations
+
+
+## 📄 License
+
+This project is open-source and available for educational and portfolio purposes.
