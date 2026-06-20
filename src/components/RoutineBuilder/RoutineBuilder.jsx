@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, Fragment } from 'react'
 import SkinTypeSelector from '../SkinTypeSelector/SkinTypeSelector'
 import ConcernSelector from '../ConcernSelector/ConcernSelector'
 import RoutineTimeSelector from '../RoutineTimeSelector/RoutineTimeSelector'
@@ -88,17 +88,16 @@ function RoutineBuilder() {
           {/* Progress tracker */}
           <div className="builder-progress" role="progressbar" aria-label="Setup progress">
             {STEPS.map((s, i) => (
-              <>
+              <Fragment key={s.num}>
                 <ProgressStep
-                  key={s.num}
                   num={s.num}
                   label={s.label}
                   status={getStepStatus(s.num)}
                 />
                 {i < STEPS.length - 1 && (
-                  <div key={`conn-${i}`} className="progress-connector" />
+                  <div className="progress-connector" />
                 )}
-              </>
+              </Fragment>
             ))}
           </div>
         </div>

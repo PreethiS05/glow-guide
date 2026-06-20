@@ -1,4 +1,4 @@
-import { IconExternalLink, IconHeart } from '../Icons/Icons'
+import { IconHeart } from '../Icons/Icons'
 import './Footer.css'
 
 function Footer() {
@@ -37,34 +37,16 @@ function Footer() {
                 <IconHeart size={12} className="footer-heart" />
                 Built by
               </p>
-              <p className="footer-author">Your Name</p>
+              <p className="footer-author">Preethi S Kumar</p>
               <a
-                href="mailto:youremail@example.com"
+                href="mailto:preethipkr78@gmail.com"
                 className="footer-email"
                 aria-label="Email the developer"
               >
-                youremail@example.com
+                preethipkr78@gmail.com
               </a>
             </div>
 
-            {/* CTA */}
-            <div className="footer-cta">
-              <a
-                id="digital-heroes-btn"
-                href="https://digitalheroesco.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-cta-btn"
-                aria-label="Visit Digital Heroes Co"
-              >
-                <div className="footer-cta-btn-bg" aria-hidden="true" />
-                <div className="footer-cta-btn-shimmer" aria-hidden="true" />
-                <span className="footer-cta-content">
-                  <span>🚀 Built for Digital Heroes</span>
-                  <IconExternalLink size={13} className="footer-cta-icon" />
-                </span>
-              </a>
-            </div>
 
           </div>
 
